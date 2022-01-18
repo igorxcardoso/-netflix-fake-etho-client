@@ -42,3 +42,25 @@ Deixa o código dinâmico. Uma aplicação pode ter divesos temas, e uma aplica�
 O theme que é passo é um objeto. No caso do projeto é uma variável que é exportada, e é acessada no App.tsx.
 
 No projeto foram criados arquivos para isolar as resposabilidade, por exemplo,um arquivo para paleta de cores, outro para bordas e assim por diante.
+
+
+
+## Material
+O tamanho máximo de colunas que posso ter é de 12, como por exemplo
+```tsx
+<Grid container>
+  <Grid item xs={4}>
+      <Button primary={true}>{`Igor`}</Button>
+  </Grid>
+  <Grid item xs={4}>
+      <Button primary={true}>{`Igor`}</Button>
+  </Grid>
+  <Grid item xs={4}>
+      <Button primary={true}>{`Igor`}</Button>
+  </Grid>
+  <Grid item xs={4}>
+      <Button primary={true}>{`Igor`}</Button>
+  </Grid>
+</Grid>
+```
+No exemplo acima, os três primeiros button, cada um tem tamanho 4 e o notal dá 12, ficaram na primeira fileira, mas o último ficará em fieira de santana.

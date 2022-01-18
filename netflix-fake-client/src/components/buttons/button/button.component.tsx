@@ -33,5 +33,7 @@ const Button = styled.a<any>`
   ${(props) => props.primary && Primary}
   ${Hover}
 `
+// Testa o da esquerda e se for verdadeiro retorna o da direita, e se for falso retorna o da esquerda
+// Lógica: {true && 1} => no exemplo ao lado, como a primeira condição é verdadeira vai retornar 1
 
 export default Button
