@@ -1,11 +1,12 @@
 import React from 'react';
+import './App.css';
 import Login from './screens/login/login.screen';
 import { Route, Routes } from 'react-router-dom';
 import { LoginPath } from './screens/login/login.types'
 import { ThemeProvider } from 'styled-components';
 import theme from './themes/main/theme';
+import { GlobalStyle } from './themes/main/global-style';
 
-import './App.css';
 
 function App() {
   // const myText = "Olá";
@@ -20,10 +21,9 @@ function App() {
     // </div>
 
     <ThemeProvider theme={theme}>
+      <GlobalStyle />
       <Routes>
-        {/* <Route path="/login" element={<Login />} /> */}
         <Route path={LoginPath} element={<Login />} />
-
       </Routes>
     </ThemeProvider>
   );

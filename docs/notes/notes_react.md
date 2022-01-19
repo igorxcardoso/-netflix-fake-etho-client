@@ -64,3 +64,20 @@ O tamanho máximo de colunas que posso ter é de 12, como por exemplo
 </Grid>
 ```
 No exemplo acima, os três primeiros button, cada um tem tamanho 4 e o notal dá 12, ficaram na primeira fileira, mas o último ficará em fieira de santana.
+
+
+## Notas do projeto
+### ThemeProvider
+Tudo que depende do thema precisa ficar denho da tag de ThemeProvider
+
+### GlobalStyle
+É um componente, que é responsavel pela cor do background.
+
+### Routes
+Posso ter a rota das seguintes formas
+```tsx
+<Route path="/login" element={<Login />} />
+<Route path={LoginPath} element={<Login />} />
+```
+Onde o LoginPath é um import para stringa que contem a rota.
+
