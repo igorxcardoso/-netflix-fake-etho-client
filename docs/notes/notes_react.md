@@ -83,6 +83,8 @@ Onde o LoginPath é um import para stringa que contem a rota.
 
 
 
+## Login
+
 ### InputText
 O esse componente foi criado em components/inputs/input-text/input-text.component.ts.
 Posso passar Props como parâmetro para o componente.
@@ -112,3 +114,14 @@ Na falta dos valores vai repetir o valor do outro lado.
 
 Informações do input nativo do HTML: https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/input
 
+
+
+
+### Logo
+É recomendado criar um componente pala a logo, mas como à aplicação é pequena o logo será importado diretamente em login.screen.tsx e passada para um tag img.
+
+Foi criado um componente no login.styled.ts que será usado para estilizar a logo. Esse componente só será usado no login.
+
+Dentro do componente será usado o styled aplicado ao img para termos acessos as propriedades nativas do HTML.
+
+Se estiver dentro de uma coluna e precisar centralizar todos os elementos, basta aplicar de forma total (mais externo).
