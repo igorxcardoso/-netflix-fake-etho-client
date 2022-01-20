@@ -84,10 +84,10 @@ Onde o LoginPath é um import para stringa que contem a rota.
 
 
 ### InputText
+O esse componente foi criado em components/inputs/input-text/input-text.component.ts.
 Posso passar Props como parâmetro para o componente.
 
 Como tenho styled.input no componente, é possível acessar todas os parâmetros que um input (HTML) tem, como text e placeholder.
-
 
 ```tsx
 <InputText type={'text'} placeholder={'Email'}/>
@@ -109,3 +109,6 @@ OBS: Poderia omitir o último valor do margin, sendo assim, ficaria
 margin: 0 0 22px 0
 ```
 Na falta dos valores vai repetir o valor do outro lado.
+
+Informações do input nativo do HTML: https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/input
+
