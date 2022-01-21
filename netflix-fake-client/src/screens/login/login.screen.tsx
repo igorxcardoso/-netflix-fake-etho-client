@@ -15,7 +15,7 @@ export default function Login() {
 							<MyLogo src={logoLogin} alt={'Logo da Netflix'} />
 							<InputText type={'text'} placeholder={'Email'}/>
 							<InputText type={'password'} placeholder={'Senha'}/>
-							<Button primary={true}>{`Igor`}</Button>
+							<Button primary={true}>{`Entrar`}</Button>
 						</Grid>
         	</Grid>
       	</Grid>
