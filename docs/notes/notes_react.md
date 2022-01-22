@@ -125,3 +125,68 @@ Foi criado um componente no login.styled.ts que será usado para estilizar a log
 Dentro do componente será usado o styled aplicado ao img para termos acessos as propriedades nativas do HTML.
 
 Se estiver dentro de uma coluna e precisar centralizar todos os elementos, basta aplicar de forma total (mais externo).
+
+
+
+### Centralização do conteúdo na tela
+
+O container é o que agrupa as colunas. Na tela delogin, o container é do tamanho da dela e está centrelizando todo conteudo no centro da tela.
+
+Para centrizar é possível usar justifyContent.
+
+É possível centralizar todo conteúdo da página usando os seguintes atributos que fazem parte do Material dentro do Grid:
+```
+minHeight={'100vh'} alignItems={'center'}
+```
+
+Mas é possível estender um componente, caso não tivéssemos o Material
+
+
+
+### Uso so styled
+Para utilizar o styled para definir um novo componente é preciso importar a biblioteca do styled, e acessa a propriedade elemento que queremos criar, e então a partir disso passmos uma string com a estilização que automaticamente será criado o componente.
+```tsx
+export const MyLogo  = styled.img`
+  margin: 0 0 128px;
+`;
+```
+
+É possível estender com ponente que já existem, e então criar outras versões ou subversões. Esses componentes vão herdar do mesmo modo quando é usado um elemento nativo do styled.
+```
+```
+
+
+
+
+
+
+### Unidades CSSS
+A seguir estão algumas unidades do CSS.
+#### vh (Viewport Height)
+VH é a medida usada na altura, no height do CSS. Altura vertical (toda altura do navegador na vertical). Funciona por porcentagem, por exemplo:
+```css
+#modal{
+ position:absolute;
+ height:100vh;
+}
+```
+
+#### vw (Viewport Width)
+VW é a medida usada na largura, no width do CSS. Funciona por porcentagem, vejamos um exemplo abaixo:
+```css
+#modal{
+ position:absolute;
+ width:100vw;
+}
+```
+
+
+
+
+
+
+
+
+
+
+
