@@ -1,9 +1,8 @@
 import { Container, Grid } from "@mui/material";
 import React from "react";
-import Button from "../../components/buttons/button/button.component";
-import InputText from "../../components/inputs/input-text/input-text.component";
 import logoLogin from '../../assets/icons/logo.svg';
 import { MyLogo, MyWropper } from "./login.styled";
+import Form from "./components/form/form.component";
 
 export default function Login() {
 	return (
@@ -13,9 +12,7 @@ export default function Login() {
         	<Grid item xs={3} justifyContent={'center'}>
 						<Grid container justifyContent={'center'}>
 							<MyLogo src={logoLogin} alt={'Logo da Netflix'} />
-							<InputText type={'text'} placeholder={'Email'}/>
-							<InputText type={'password'} placeholder={'Senha'}/>
-							<Button primary={true}>{`Entrar`}</Button>
+							<Form />
 						</Grid>
         	</Grid>
       	</MyWropper>
