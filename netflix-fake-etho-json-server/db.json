@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Sopaahia Oliveira",
+      "email": "sophia@gmail.com",
+      "password": "7373833"
+    },
+    {
+      "name": "Igor Oliveira",
+      "email": "igor@gmail.com",
+      "password": "12345678",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "name": "João Pinto de Sá",
+      "email": "jojo2091i@hotmail.com",
+      "password": "12345678"
+    }
+  ]
+}
