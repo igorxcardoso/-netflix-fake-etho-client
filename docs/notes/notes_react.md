@@ -184,9 +184,43 @@ VW é a medida usada na largura, no width do CSS. Funciona por porcentagem, veja
 
 
 
+# Hooks
+## O que são?
+Hooks são uma nova proposta que irá nos permitir utilizar estado, ciclo de vida, entre outras funcionalidades sem a necessidade de escrevermos componentes com classe.
 
+## useState
+O useState é um hook. Nós o chamamos dentro de um componente funcional para adicionar alguns states locais a ele. React irá preservar este state entre re-renderizações. useState retorna um par: o valor do state atual e uma função que permite atualizá-lo.
 
+O useState serve para persistir dados, de maneira resumida.
+O useState vai retornar um Array, sendo assim é usado a desestruturação de array.
+É possível colocar um calor incial no useState.
+```tsx
+  const [age, setAge] = useState(42);
+  const [fruit, setFruit] = useState('banana');
+  const [todos, setTodos] = useState([{ text: 'Learn Hooks' }]);
+```
 
+**OBS**: desestruturação de array
+```js
+  > const [a, b] = [1, 2]
+  undefined
+  > a
+  1
+  > b
+  2
+```
 
+**OBS**: desestruturação de object
+```js
+  > const {e, d} = {'d': 1, 'c':9}
+  undefined
+  > e
+  undefined
+  > d
+  1
+  >
+```
 
+O setData recebe uma prop chamada de prevState, que seria o state atual daquele estado. O prevState é o valor mais atual. (vide código da aplicação)
 
+Ter o controle de agrupar os dados que fazem sentido entre si.
