@@ -1,26 +1,21 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import InputText from "../../../../components/inputs/input-text/input-text.component";
 import Button from "../../../../components/buttons/button/button.component";
 
 export default function Form() {
   const [data, setData] = useState( {email: '', password: '' } )
 
-  // const getChange = (event: any) => setData(prevState => ({
-  //     ...prevState,
-  //     [event.target.name]: event.target.value
-  // }));
+  const getChange = useCallback(
+    /*callback*/
+    function(event: any) {
+      return setData(function(prevState) {
+        return {...prevState, [event.target.name]: event.target.value};
+      });
+    },
 
-
-  function getChange(event: any) {
-    return setData(prevState => ({
-        ...prevState,
-        [event.target.name]: event.target.value
-      })
-    );
-  }
-
-  // Spred opperetion
-
+    /*deps*/
+    [setData]
+  )
 
   console.log(data)
 
