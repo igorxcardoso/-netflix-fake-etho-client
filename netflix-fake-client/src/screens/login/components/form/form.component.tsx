@@ -5,21 +5,25 @@ import Button from "../../../../components/buttons/button/button.component";
 export default function Form() {
   const [data, setData] = useState( {email: '', password: '' } )
 
-  const getChange = (event: any) => setData(prevState => ({
-      ...prevState,
-      [event.target.name]: event.target.value
-  }));
+  // const getChange = (event: any) => setData(prevState => ({
+  //     ...prevState,
+  //     [event.target.name]: event.target.value
+  // }));
+
+
+  function getChange(event: any) {
+    return setData(prevState => ({
+        ...prevState,
+        [event.target.name]: event.target.value
+      })
+    );
+  }
+
+  // Spred opperetion
+
 
   console.log(data)
 
-  // function getChange(event: any) {
-  //   return setData(prevState => ({
-  //     ...prevState,
-  //     [event.target.name]: event.target.value
-  //   }));
-  // }
-
-  // Spred opperetion
 
   return (
     <>
