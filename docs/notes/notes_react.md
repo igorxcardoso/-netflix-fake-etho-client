@@ -224,3 +224,82 @@ O useState vai retornar um Array, sendo assim é usado a desestruturação de ar
 O setData recebe uma prop chamada de prevState, que seria o state atual daquele estado. O prevState é o valor mais atual. (vide código da aplicação)
 
 Ter o controle de agrupar os dados que fazem sentido entre si.
+
+## useCallback
+
+O useCallback é responsável por retornar um função memorizada. Um função memorizada é uma função que tem seus dados gravado, e ela so vai ser atulizada se algumas das suas dependência (**deps:**) forem atualizadas.
+
+Vale lembrar que o Rect "trabalha" (renderiza) mediante atualização, ou seja, o React é reativo.
+
+Do jeito que está abaixo acada vez que o **data** mudar será criado uma nova referência de **getChange** com um novo *setData*, pois ele muda também a cada renderização.
+```tsx
+  const [data, setData] = useState( {email: '', password: '' } )
+
+  function getChange(event: any) {
+    return setData(prevState => ({
+        ...prevState,
+        [event.target.name]: event.target.value
+      })
+    );
+  }
+```
+
+O useCallback irá retonar uma função executável, a seguir estão os parâmetros aceitos por esse Hook:
+```tsx
+  const test = useCallback(
+    /*callback*/ () => {},
+    /*deps*/ []
+  )
+```
+  * callback: uma função que pode recebr um parâmetro
+  * deps: são as dependências para que "fale" com useCallback quando que essa função seja atualizada. Sendo assim, são passados os dados que precisam ser escutados pelo useCallback para que cada mudança desse **dado** ele precisa atualizar essa função ou não.
+
+
+Quando passamos o **deps** vazio, como demonstrado abaixo, o setData será declarado uma única vez.
+
+```tsx
+  const _getChange = useCallback(
+    /*callback*/
+    (event: any) => setData(prevState => ({
+      ...prevState,
+      [event.target.name]: event.target.value
+    })),
+
+    /*deps*/
+    []
+  )
+```
+
+Então, como queremos que o getChange seja atualizado a cada mudança do **setData** precisamos passa-ló dentro de deps.
+```tsx
+[setData]
+```
+Portanto, acada mudança do setData o Hook useCallback será atulizado, chamando a função que foi passada.
+
+### Formas de escrita
+Usando arrow functions
+```tsx
+  const _getChange = useCallback (
+    (event: any) => setData(prevState => ({
+        ...prevState,
+        [event.target.name]: event.target.value
+    })),
+    [setData]
+  );
+
+```
+
+Usando funções anônimas
+```tsx
+ const getChange = useCallback(
+    /*callback*/
+    function(event: any) {
+      return setData(function(prevState) {
+        return {...prevState, [event.target.name]: event.target.value};
+      });
+    },
+
+    /*deps*/
+    [setData]
+  )
+```
