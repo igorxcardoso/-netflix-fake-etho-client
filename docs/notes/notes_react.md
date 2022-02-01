@@ -303,3 +303,34 @@ Usando funções anônimas
     [setData]
   )
 ```
+
+Quando quero usar uma determinado variável que não relação com as outras do código, e que não precisar ser renderizada, basta usar o useCallback da seguinte forma
+```tsx
+teste = useCallback (
+  () => true,
+  []
+);
+```
+Desse modo, esse código (essa declaração) só ocorrerá uma vez. Um exemplo disso, é a chamada de um cosole.log dentro da função, como exporto abaixo, onde a cada renderização (mudança de do data) será executado o console.log.
+
+```tsx
+export default function Form() {
+  const [data, setData] = useState( {email: '', password: '' } )
+
+  const getChange = useCallback(
+    /*callback*/
+    function(event: any) {
+      return setData(function(prevState) {
+        return {...prevState, [event.target.name]: event.target.value};
+      });
+    },
+
+    /*deps*/
+    [setData]
+  )
+
+  console.log(data)
+
+  return ( );
+}
+```
