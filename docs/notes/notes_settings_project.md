@@ -59,3 +59,15 @@ Aqui estão todos elemntos que para tela de login, e dentro do diretório comté
 
 #### screens/login/form
 Aqui estão os somponentes utilizado para fazer o from, como input e botão.
+
+
+
+# Validação usando o yup
+Um lib de validação que não tem nada a ver com Rectjs. Com o yup é possível definir o formato que o dado tem que ter, e vai relizar as validações. Se a entrada foir válida será retornado um booleano, e em caso de erro será retornado o erro.
+
+***schema***: onde é definido os campos, os valores e todas as regras de dados para cada campo.
+
+**Libs para validação no Recat**: 1. React Hook Form; 2.Redux Form (descontinuado, pois é ruim).
+
+O yup é uma factory, pois sempre está retornando um dado e a si mesmo, assim como um Hook.
+
