@@ -2,9 +2,12 @@ import React, { useCallback, useState } from "react";
 import InputText from "../../../../components/inputs/input-text/input-text.component";
 import Button from "../../../../components/buttons/button/button.component";
 import * as yup from 'yup';
+import { ErrorMessage } from "./form.types";
+import { ErrorDescription } from "./form.styled";
 
 export default function Form() {
   const [data, setData] = useState( {email: '', password: '' } )
+  const [error, setError] = useState('')
 
   const getChange = useCallback(
     /*callback*/
@@ -21,32 +24,30 @@ export default function Form() {
     async () => {
       // Definição do schema
       const schema = yup.object().shape({
-        email: yup.string().required().email(),
-        password: yup.string().required()
+        email: yup.string().required(ErrorMessage.Required).email(ErrorMessage.Email),
+        password: yup.string().required(ErrorMessage.Password)
       });
 
       try {
-        await schema.validate(data);
+        await schema.validate(data);    // Queoro validar o data em cida do schema que foi definido
         // console.log(true, data);
         return true;
 
-      }catch(error: any) {
-        console.log(error.errors[0]);
+      }catch(error) {
+        // @ts-ignore
+        setError(error.errors);
         return false;
       }
     },
-    [data]
-  );
+    [data, setError]    // Está falando para o Hook useCallback que deve ser redeclarado a cada mudança do data
+  );                    // Vai atulizar o data que está sendo usado na função validation
 
   const onSubmit = useCallback(
     async () => {
       await validation();
-
-      // console.log(data);
     },
-    [validation]  // Vai atulizar o data que voi gravado na função onSumit
-  );             // Está falando para o Hook useCallback que deve ser redeclarado a cada mudança do data
-
+    [validation]     // Está falando para o Hook useCallback que deve ser redeclarado a cada mudança do validation
+  );
 
   // console.log(data)
 
@@ -55,6 +56,7 @@ export default function Form() {
     <>
       <InputText type={'text'} placeholder={'Email'} name={'email'} onChange={getChange} />
       <InputText type={'password'} placeholder={'Senha'} name={'password'} onChange={getChange} />
+      <ErrorDescription>{error}</ErrorDescription>
       <Button onClick={onSubmit} primary={true}>{`Entrar`}</Button>
     </>
   );
