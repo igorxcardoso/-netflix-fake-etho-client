@@ -5,9 +5,17 @@ import * as yup from 'yup';
 import { ErrorMessage } from "./form.types";
 import { ErrorDescription } from "./form.styled";
 
+const errorInitial = ''
+
 export default function Form() {
-  const [data, setData] = useState( {email: '', password: '' } )
-  const [error, setError] = useState('')
+  const [data, setData] = useState( {email: '', password: '' } );
+  const [error, setError] = useState(errorInitial);
+
+
+  const resetError = useCallback(
+    () => setError(errorInitial),
+    []
+  );
 
   const getChange = useCallback(
     /*callback*/
@@ -18,7 +26,7 @@ export default function Form() {
     },
     /*deps*/
     [setData]
-  )
+  );
 
   const validation = useCallback(
     async () => {
@@ -30,7 +38,7 @@ export default function Form() {
 
       try {
         await schema.validate(data);    // Queoro validar o data em cida do schema que foi definido
-        // console.log(true, data);
+        resetError()          // Vai resetar o estado do error
         return true;
 
       }catch(error) {
@@ -48,8 +56,6 @@ export default function Form() {
     },
     [validation]     // Está falando para o Hook useCallback que deve ser redeclarado a cada mudança do validation
   );
-
-  // console.log(data)
 
 
   return (
