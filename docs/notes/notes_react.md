@@ -337,6 +337,28 @@ export default function Form() {
 
 
 
+# Redux
+O Redux é o estado global que irá persisitir os dados, e permitirá que o fluxo se comuniquem, persistindo dadados importantes, como exemplo, persisitir dado do usuário, para fazer alguma validação ou mostrar uma tela customizada. O Redux também disponibilizará ações (metodos).
+Docs: https://react-redux.js.org/tutorials/quick-start
 
+## Instalção do Redux
+```
+npm install react-redux
+```
+E a tipagem
+```
+npm install @types/react-redux
+```
+E também
+npm install @reduxjs/toolkit
 
-#
+### Provider
+No Provider é passador o store, que é o objeto atualizado (global da aplicação), então todos as telas e componentes que forem filhos desse Provider eles irão conseguir achar/acessar esses dados com Hookes com os métodos também.
+
+#### Slice
+
+O é uma responsabilidade isolada do **store**.
+##### user.slice.ts
+A responsábilidade de autenticar o usuário será passada para o Redux.
+
+O **createSlice** é um método que irá criar todo objeto (ou classe), basicamente ela irá montar parte de um estado novo, para seja possível importa o useSlice para a store, aí o store poderá gerenciar/persisitir e recer as ações dele.
